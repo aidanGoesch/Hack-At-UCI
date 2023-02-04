@@ -1,15 +1,1 @@
 waffle meow pinata
-get mood playlists
-
-happy, sad, chill, hype, sleep, energetic
-
-we need to get data from mood playlists
-and their songs and metrics
-
-dancability, key, loudness, speechiness, acousticness, instrumentalist, liveness, valence, tempo, duration
-
-get playlist mood
-get song ids from playlists
-
-From song ids get audio features
-https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features
