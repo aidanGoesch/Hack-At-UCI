@@ -24,5 +24,9 @@ Use the 1 million line CSV file to train the NN
 
 
 Nathan and Mahad
-Can you get a list of songs that are in a certain range of danceability/otheer metric
+Can you get a list of songs that are in a certain range of danceability/other metric
 
+K nearest neighbors (transform input into a vector)
+
+
+The average metric score of the user serves as a weight to multiply the findings of the NN by
