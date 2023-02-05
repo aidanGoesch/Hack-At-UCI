@@ -10,7 +10,7 @@ app = Flask(__name__, static_folder='static')
 def process():
     if request.method == "POST":
         form_data = request.form
-        song_list = get_display_song_list(form_data["mood"], form_data["artist"])
+        song_list = get_display_song_list(form_data["artist"], form_data["mood"])
         return render_template("index.html", mood = form_data["mood"], artist = form_data["artist"])
     return render_template("index.html", mood = "", artist = "")
 
