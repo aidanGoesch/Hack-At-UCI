@@ -9,7 +9,12 @@ import pandas as pd
 CLIENT_ID = 'b38bdc06ca494cd385eaf026a84f53fd'
 CLIENT_SECRET = '4418182ed9b447e8a142063574c5c347'
 
-genres = {'more-songs-1': ('37i9dQZF1DWXRqgorJj26U',)
+genres = {'more-songs-1': ('37i9dQZF1DWXRqgorJj26U',
+                            "40y8L7CXfZYv8zgMB9asj7",
+                            "40HuXUhGne38mfewzlLghz",
+                            "3a9pVhH8G93BZ3OB9OTbhF",
+                            "2X669hlkIwJ5GZaz27dG7c",
+                            "69tUdeFaKRDVTg2guSDttx")
                             }
 
 def get_token() -> str:
@@ -84,7 +89,10 @@ def get_features_of_playlist(playlist_song_id_list: list) -> list['tuple']:
     """ Returns the features of a playlist"""
     playlist_features_list = []
     for song in playlist_song_id_list:
-        playlist_features_list.append(get_song_features(song))
+        try:
+            playlist_features_list.append(get_song_features(song))
+        except:
+            pass
     return playlist_features_list
 
 def get_features_for_genre():
@@ -106,8 +114,9 @@ def create_csv_files():
     # Takes in all the playlist ids from the genres dict and
     # makes csvs of each genre and the songs inside the playlist
     temp_genre = get_features_for_genre()
+    i = 1
     for key, val in temp_genre.items():
-        file = f'{key}.csv'
+        file = f'{key}-{i}.csv'
         df = pd.DataFrame(val, columns = ['track_id',
                                           'danceability',
                                           'energy',
@@ -120,6 +129,7 @@ def create_csv_files():
                                           'valence',
                                           'tempo'])
         df.to_csv(file)
+        i += 1
 
 if __name__ == '__main__':
     create_csv_files()
