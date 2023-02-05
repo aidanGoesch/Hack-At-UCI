@@ -82,7 +82,7 @@ def create_csv(artist: str):
                                           'tempo'])
         df.to_csv('temp.csv')
     except:
-        print('Something went wrong. Maybe you spelled the artist wrong.')
+        return('Something went wrong.')
 
 if __name__ == '__main__':
     create_csv('Lil Uzi Vert')

@@ -9,7 +9,7 @@ import pandas as pd
 CLIENT_ID = 'b38bdc06ca494cd385eaf026a84f53fd'
 CLIENT_SECRET = '4418182ed9b447e8a142063574c5c347'
 
-genres = {'more-songs-1': ('0CV5QihhxHUj9KFd83TCHN',)
+genres = {'more-songs-1': ('37i9dQZF1DWXRqgorJj26U',)
                             }
 
 def get_token() -> str:
@@ -122,3 +122,4 @@ def create_csv_files():
         df.to_csv(file)
 
 if __name__ == '__main__':
+    create_csv_files()
