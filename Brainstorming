@@ -1,0 +1,28 @@
+
+Step 0: get a mood suggestion from the user
+Step 1: Accessing a user's top 100 songs
+
+How do we identify mood of a song
+
+What are we training the NN on:
+
+neural net stuff:
+k means clustering
+unsupervised clustering
+
+use existing playlists to as something to compare the clusters to
+
+Step 2: Selecting the top songs that fit the mood
+
+
+End result: playlist according to mood
+
+
+
+Training the neural network against mood-based playlists
+Use the 1 million line CSV file to train the NN
+
+
+Nathan and Mahad
+Can you get a list of songs that are in a certain range of danceability/otheer metric
+

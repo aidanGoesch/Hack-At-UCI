@@ -1,0 +1,26 @@
+happy, sad, chill, hype, angry
+
+
+we need to get data from mood playlists
+and their songs and metrics
+
+
+dancability, key, loudness, speechiness, acousticness, instrumentalist, liveness, valence, tempo, duration
+
+
+get playlist mood
+get song ids from playlists
+
+
+From song ids get audio features
+
+
+https://developer.spotify.com/documentation/web-api/reference/#/operations/get-audio-features
+
+
+Then we take that range of the features and find the songs
+https://developer.spotify.com/console/get-playlist-tracks/?playlist_id=37i9dQZF1EVJSvZp5AOML2&market=&fields=&limit=&offset=&additional_types=
+Fields: items(track(name, id))
+
+https://developer.spotify.com/documentation/web-api/reference/#/operations/get-playlists-tracks
+
