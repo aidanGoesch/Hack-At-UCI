@@ -1,6 +1,5 @@
 from pathlib import Path
 import knn
-from flask_app import app
 import moods
 import pandas_reading
 import top_track_of_artist
