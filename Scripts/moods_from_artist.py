@@ -26,7 +26,7 @@ def get_display_song_list(artist: str, mood: str):
 
         closest_songs = knn.get_closest_k(song_list, weighted_avg)
     else:
-        average_vector = moods.MOOD[mood]
+        average_vector = moods.MOOD[l_mood]
         song_list = pandas_reading.get_song_list(songs_csv)
         closest_songs = knn.get_random_songs(knn.get_closest_k(song_list, average_vector))
 
