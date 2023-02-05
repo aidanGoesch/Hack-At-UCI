@@ -18,9 +18,10 @@ function load_webpage() {
 
     if (stage !== "1") {
         // on the second time it's been reloaded
-        let inputs = document.getElementsByClassName("inputs")
 
-        inputs.forEach(input => {
+        for (let i = 0; i < 2; i++) {
+            let input = document.getElementsByClassName("inputs")[i]
+
             input.value = stage
             input.style.animationName = "inputRise"
 
@@ -28,7 +29,7 @@ function load_webpage() {
             input.style.animationName = "inputRise"
             input.style.animationDuration = "2s"
             input.style.animationFillMode = "forwards"
-        })
+        }
 
 
     }
