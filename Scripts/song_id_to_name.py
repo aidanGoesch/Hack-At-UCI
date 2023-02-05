@@ -23,7 +23,7 @@ def create_header() -> dict:
     }
     return headers
 
-def get_song_name(song_id: str) -> str:
+def get_song_name(song_id: str) -> tuple:
     # base URL of all Spotify API endpoints
     BASE_URL = 'https://api.spotify.com/v1/tracks/'
 
@@ -31,7 +31,7 @@ def get_song_name(song_id: str) -> str:
     headers = create_header()
     r = requests.get(BASE_URL + song_id + '?market=US', headers = headers)
     r = r.json()
-    return r['name']
+    return r['name'], r['artists'][0]['name']
 
 def song_id_list_to_song_name_list(id_list: list) -> list:
     for index in range(len(id_list)):
