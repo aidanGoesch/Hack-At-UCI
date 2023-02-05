@@ -1,5 +1,7 @@
 import math
+import random
 from typing import Self
+
 
 
 K = 10
@@ -94,7 +96,7 @@ def account_for_artist_vector(avg_vec: MetricsVector, artist_vec: MetricsVector)
     average_vector = []
 
     for i in range(len(vector_list_1)):
-        average_vector.append(((2 * vector_list_1[i]) + vector_list_2[i])/3)
+        average_vector.append(((3 * vector_list_1[i]) + vector_list_2[i])/4)
 
     temp_vec = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     temp_vec.raw_assign(average_vector)
