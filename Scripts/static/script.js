@@ -16,8 +16,6 @@ function change_button() {
 
 function start_loading() {
     document.getElementById("loadingBar").hidden = false
-    document.getElementById("moodButton").disab
-    document.getElementById("artistInput").disable()
 }
 
 function load_webpage() {
@@ -44,10 +42,10 @@ function load_webpage() {
         }
 
         // create table
-        let table = document.getElementById("songList")
+        let table = document.getElementById("songTable")
 
         songs.forEach(song => {
-            table.innerHTML+= "<li>" + song + "</li>"
+            table.innerHTML+= "<tr>" + song + "</tr>"
         })
     }
 }

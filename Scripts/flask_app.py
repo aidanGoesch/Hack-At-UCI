@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 import os
 from moods_from_artist import get_display_song_list
-from song_id_to_name import song_id_list_to_song_name_list
 
 port = os.environ.get("PORT", 5001)
 
@@ -12,8 +11,6 @@ def process():
     if request.method == "POST":
         form_data = request.form
         song_list = get_display_song_list(form_data["artist"], form_data["mood"])
-        song_names = song_id_list_to_song_name_list(song_list)
-        print(song_list)
         return render_template("index.html", mood = form_data["mood"], artist = form_data["artist"], songs = song_list)
     return render_template("index.html", mood = "", artist = "", songs = [])
 
