@@ -1,16 +1,13 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template
 
 app = Flask(__name__, static_folder='static')
 
-def do_something(text1, text2):
-   text1 = text1.upper()
-   text2 = text2.upper()
-   combine = text1 + text2
-   return combine
-
-@app.route('/')
+@app.route("/", methods=["GET", "POST"])
 def process():
-    return render_template("index.html")
+    if request.method == "POST":
+        form_data = request.form
+        return render_template("index.html", stage = form_data["mood"])
+    return render_template("index.html", stage = "1")
 
 if __name__ == '__main__':
     app.run(debug = True, host = '0.0.0.0', port = 5001)

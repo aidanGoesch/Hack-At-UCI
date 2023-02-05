@@ -4,9 +4,9 @@
         <meta charset="UTF-8">
         <title>Moodify</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='bubbles.css') }}">
-<!--        <script src="script.js"></script>-->
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
     </head>
-    <body>
+    <body onload="load_webpage()">
         <div class="bubbles">
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -22,8 +22,11 @@
 
         <div id="input_field">
             <h1 id="titleBar">Moodify</h1>
-            <form action="{{ url_for('process') }}" method="post">
-                <input type="text" id="moodInput" placeholder="Mood..." autocomplete="off">
+            <form action="/" method="post">
+                <input type="button" class="inputs" id="moodButton" onclick="change_button()" value="Sad">
+                <input type="text" name="artist" class="inputs" id="artistInput" placeholder="Artist..." autocomplete="off">
+                <input type="button" name="mood" class="inputs" id="moodInput" value="Sad" hidden="hidden">
+                <a id="stage" hidden="hidden">{{ stage }}</a>
             </form>
         </div>
     </body>
