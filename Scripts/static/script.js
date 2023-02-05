@@ -14,6 +14,10 @@ function change_button() {
     document.getElementById("moodInput").value = MOODS[index]
 }
 
+function start_loading() {
+    document.getElementById("loadingBar").hidden = false
+}
+
 function load_webpage() {
     let mood = document.getElementById("mood").innerHTML
     let artist = document.getElementById("artist").innerHTML
@@ -42,3 +46,5 @@ function load_webpage() {
     }
 
 }
+
+
