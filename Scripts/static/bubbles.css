@@ -5,7 +5,8 @@ body, html {
 body {
   margin: 0;
   padding: 0;
-  background: #29B6F6;
+  background: #3154FF;
+  transition: all 0.6s
 }
 #titleBar {
   position: fixed;
@@ -21,14 +22,33 @@ body {
   padding-left: 50%;
   height: 100%;
 }
-#moodInput {
+.inputs {
   font-family: 'Polly', Arial, sans-serif;
-  top: 25%;
   transform: translateX(-50%);
   position: absolute;
   height: 70px;
   width: 600px;
   font-size: 35px;
+}
+
+#moodButton {
+  top: 25%;
+  border-radius: 10px;
+  transition: all 0.3s
+}
+#moodButton:hover {
+  transform: translate(-50%, -10px);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+#moodButton:active {
+  transform: translate(-50%, 0px);
+  box-shadow: 0px 0px;
+
+}
+
+
+#artistInput {
+  top: calc(25% + 100px);
 }
 .bubbles {
   position: fixed;
@@ -117,7 +137,27 @@ body {
   left: 25%;
   animation-duration: 11s;
   animation-delay: 0s;
+  transition: all 0.3s ease
+
 }
+@keyframes inputRise {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  100% {
+    transform: translate(-50%, -500px);
+  }
+}
+
+@keyframes buttonHover {
+  0% {
+    transform: translate(-50%, 0);
+  }
+  100% {
+    transform: translate(-50%, -10px);
+  }
+}
+
 @keyframes rise {
   0% {
     bottom: -700px;
