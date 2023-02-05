@@ -12,7 +12,7 @@ class MetricsVector:
         self.vector = (average_metric(danceability, 1),
                        average_metric(energy, 1),
                        average_metric(m_key, 1),
-                       average_metric(loudness, 7.234),
+                       average_metric(loudness, 60),
                        average_metric(speechiness, 0.969),
                        average_metric(acousticness, 0.996),
                        average_metric(instrumentalness, 1),
