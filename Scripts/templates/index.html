@@ -25,8 +25,9 @@
             <form action="/" method="post">
                 <input type="button" class="inputs" id="moodButton" onclick="change_button()" value="Sad">
                 <input type="text" name="artist" class="inputs" id="artistInput" placeholder="Artist..." autocomplete="off">
-                <input type="button" name="mood" class="inputs" id="moodInput" hidden="hidden" value="Sad">
-                <a id="stage" hidden="hidden">{{ stage }}</a>
+                <input type="hidden" name="mood" class="inputs" id="moodInput" hidden="hidden" value="Sad">
+                <a id="mood" hidden="hidden">{{ mood }}</a>
+                <a id="artist" hidden="hidden">{{ artist }}</a>
             </form>
         </div>
     </body>
