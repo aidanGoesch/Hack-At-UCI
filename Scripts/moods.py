@@ -5,12 +5,11 @@ from pathlib import Path
 
 
 def get_average_mood_vectors() -> dict[str, knn.MetricsVector]:
-    csv_path = Path('..\\CSVs\\happy.csv')
     mood_list = ['angry', 'chill', 'happy', 'hype', 'sad']
     mood_dict = {}
 
     for mood in mood_list:
-        csv_path = Path(f'..\\CSVs\\{mood}.csv')
+        csv_path = Path(f'./CSVs/{mood}.csv')
 
         vector_list = pandas_reading.get_song_list(csv_path)
 

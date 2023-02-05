@@ -1,4 +1,8 @@
 from flask import Flask, request, render_template
+import os
+
+port = os.environ.get("PORT", 5001)
+
 
 app = Flask(__name__, static_folder='static')
 
@@ -6,8 +10,8 @@ app = Flask(__name__, static_folder='static')
 def process():
     if request.method == "POST":
         form_data = request.form
-        return render_template("index.html", stage = form_data["mood"])
-    return render_template("index.html", stage = "1")
+        return render_template("index.html", mood = form_data["mood"], artist = form_data["artist"])
+    return render_template("index.html", mood = "", artist = "")
 
 if __name__ == '__main__':
-    app.run(debug = True, host = '0.0.0.0', port = 5001)
+    app.run(debug = True, host = '0.0.0.0', port = port)
