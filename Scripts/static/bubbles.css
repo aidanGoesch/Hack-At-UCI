@@ -22,11 +22,6 @@ body {
   padding-left: 50%;
   height: 100%;
 }
-.songList {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
 .outputs {
   font-family: 'Polly', Arial, sans-serif;
   transform: translateX(-50%);
