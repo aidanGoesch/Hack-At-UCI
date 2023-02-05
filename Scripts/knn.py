@@ -2,7 +2,7 @@ import math
 from typing import Self
 
 
-K = 5
+K = 10
 
 
 class MetricsVector:

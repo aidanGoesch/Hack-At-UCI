@@ -21,5 +21,5 @@ def get_average_mood_vectors() -> dict[str, knn.MetricsVector]:
     return mood_dict
 
 
-MOODS = get_average_mood_vectors()
+MOOD = get_average_mood_vectors()
 
