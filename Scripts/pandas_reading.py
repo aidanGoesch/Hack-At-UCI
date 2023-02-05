@@ -12,7 +12,7 @@ def get_song_list(csv_path: Path) -> list[knn.MetricsVector]:
     """reads the csv file, turns the dataframe into a list. Then iterates through the list
     and makes a vector for each row in the song list"""
     songs = pd.read_csv(csv_path, low_memory=False, delimiter=',').values
-    print(np.array(songs))
+    # print(np.array(songs))
 
     vector_list = []
     for song in songs:
