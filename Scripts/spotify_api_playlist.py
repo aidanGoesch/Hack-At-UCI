@@ -8,11 +8,12 @@ import pandas as pd
 CLIENT_ID = 'b38bdc06ca494cd385eaf026a84f53fd'
 CLIENT_SECRET = '4418182ed9b447e8a142063574c5c347'
 
-genres = {'happy': ('37i9dQZF1DXdPec7aLTmlC', '6HUHyoFBNNA3ZpssjlUqCL', '03KJbvju2CTk2Gks4K4lpp', '7CAsqQPQEemGgBQiGo6x93'),
-          'sad': ('54NczufWOFmJ5jUVvRPxaF', '22kNFcCpmoyruXzVAXUAZS', '0DiIiLcScBTTTRgtRkwGxe', '3c0Nv5CY6TIaRszlTZbUFk'),
-          'chill': ('7hJfYpKLDQwmeHIPTmNS5y', '7hJfYpKLDQwmeHIPTmNS5y', '2kg3XJlpeRL3MRgHwdAqB8'),
-          'hype': ('6l3wEBANopjFYzZLppM8eJ', '3Qlo8PGJKE53FgTcIjuIvJ', '0874HuH6yEfOl0v14A13H2', '5X82XLmBmcl16PXuL7eYQ5'),
-          'angry': ('457PRAhJMUXaS8s6Evh6Hd', '4zZpffTnguBELBde2Ar30Z')}
+genres = {'more-songs': ('40y8L7CXfZYv8zgMB9asj7',
+                        "37i9dQZF1DWXRqgorJj26U",
+                        "40HuXUhGne38mfewzlLghz",
+                        '2X669hlkIwJ5GZaz27dG7c',
+                        '69tUdeFaKRDVTg2guSDttx',
+                        '4m2b9fA2s6h9zCdTIYj35d')}
 
 def get_token() -> str:
     AUTH_URL = 'https://accounts.spotify.com/api/token'
@@ -33,8 +34,6 @@ def create_header() -> dict:
         'Authorization': 'Bearer {token}'.format(token = access_token)
     }
     return headers
-
-header = create_header()
 
 def get_song_features(song_id: str) -> tuple:
     # base URL of all Spotify API endpoints
