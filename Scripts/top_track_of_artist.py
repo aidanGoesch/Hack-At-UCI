@@ -5,6 +5,9 @@ import urllib.request
 import requests
 import pandas as pd
 
+# Main function is create_csv which takes in a string of the desired artist and will return the top
+# songs of the artist
+
 CLIENT_ID = 'b38bdc06ca494cd385eaf026a84f53fd'
 CLIENT_SECRET = '4418182ed9b447e8a142063574c5c347'
 
