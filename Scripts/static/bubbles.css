@@ -31,6 +31,20 @@ body {
   font-size: 35px;
 }
 
+#loadingBar {
+  top: calc(25% + 200px);
+  transform: translateX(-50%);
+  background-color: white;
+  position: absolute;
+  height: 30px;
+  width: 600px;
+  animation-name: loading;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: center;
+}
+
 #moodButton {
   top: 25%;
   border-radius: 10px;
@@ -45,7 +59,6 @@ body {
   box-shadow: 0px 0px;
 
 }
-
 
 #artistInput {
   top: calc(25% + 100px);
@@ -171,6 +184,30 @@ body {
     transform: translateX(-200px);
   }
 }
+
+@keyframes loading {
+  0% {
+    transform: translateX(calc(-50% - 300px));
+    width: 0px;
+  }
+  25% {
+    /*transform: translateX(-50%);*/
+    width: 600px;
+  }
+  50% {
+    transform: translateX(calc(-50% + 300px));
+    width: 0px;
+  }
+  75% {
+    /*transform: translateX(-50%);*/
+    width: 600px;
+  }
+  100% {
+    transform: translateX(calc(-50% - 300px));
+    width: 0px;
+  }
+}
+
 @font-face  {
   font-family: "Polly";
   src:
