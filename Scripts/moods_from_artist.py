@@ -10,12 +10,12 @@ def get_display_song_list(artist: str, mood: str):
 
     temp = top_track_of_artist.create_csv(artist)
 
-    songs_csv = Path('somewhere')
+    songs_csv = Path('../CSVs/song_list.csv')
 
     average_vector = moods.MOOD[l_mood]
 
     if temp != 'Something went wrong.':
-        artist_csv = Path('somewhere')
+        artist_csv = Path('temp.csv')
 
         song_list = pandas_reading.get_song_list(songs_csv)
         artist_songs = pandas_reading.get_song_list(artist_csv)
