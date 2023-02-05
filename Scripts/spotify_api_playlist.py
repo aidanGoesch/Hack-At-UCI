@@ -8,7 +8,7 @@ import pandas as pd
 CLIENT_ID = 'b38bdc06ca494cd385eaf026a84f53fd'
 CLIENT_SECRET = '4418182ed9b447e8a142063574c5c347'
 
-genres = {'more-songs': ('40y8L7CXfZYv8zgMB9asj7',
+genres = {'more-songs-1': ('40y8L7CXfZYv8zgMB9asj7',
                         "37i9dQZF1DWXRqgorJj26U",
                         "40HuXUhGne38mfewzlLghz",
                         '2X669hlkIwJ5GZaz27dG7c',
