@@ -31,11 +31,11 @@ def get_song_name(song_id: str) -> tuple:
     headers = create_header()
     r = requests.get(BASE_URL + song_id + '?market=US', headers = headers)
     r = r.json()
-    return r['name'], r['artists'][0]['name']
+    return r['name']
 
 def song_id_list_to_song_name_list(id_list: list) -> list:
-    for index in range(id_list):
-        id_list[index] = get_song_name(id_list[index])
+    for index in range(len(id_list)):
+        id_list[index] = get_song_name(str(id_list[index].get_song_id()))
     return id_list
 
 if __name__ == '__main__':
