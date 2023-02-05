@@ -8,7 +8,7 @@ K = 5
 class MetricsVector:
     def __init__(self, danceability: float, energy: float, m_key: int, loudness: float,
                  speechiness: float, acousticness: float, instrumentalness: float,
-                 liveness: float, valence: float, tempo: float, song_id: int):
+                 liveness: float, valence: float, tempo: float, song_id: int=0):
         self.vector = (average_metric(danceability, 1),
                        average_metric(energy, 1),
                        average_metric(m_key, 1),
@@ -63,7 +63,7 @@ def get_average_vector(vector_list: list[MetricsVector]) -> MetricsVector:
     for j in range(len(metrics_list)):
         metrics_list[j] = metrics_list[j]/len(vector_list)
 
-    final_vector = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0) # this needs to be fixed
+    final_vector = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     final_vector.raw_assign(metrics_list)
 
     return final_vector
