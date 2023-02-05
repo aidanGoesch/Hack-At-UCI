@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Moodify</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='bubbles.css') }}">
+<!--        <script src="script.js"></script>-->
+    </head>
+    <body>
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+
+        <div id="input_field">
+            <h1 id="titleBar">Moodify</h1>
+            <form action="{{ url_for('process') }}" method="post">
+                <input type="text" id="moodInput" placeholder="Mood..." autocomplete="off">
+            </form>
+        </div>
+    </body>
+</html>
