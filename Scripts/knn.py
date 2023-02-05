@@ -74,6 +74,7 @@ def get_closest_k(vec_list: list[MetricsVector], query: MetricsVector) -> list[M
     vec_list.sort(key=lambda n: n.get_distance(query))
     return vec_list[:K]
 
+
 def get_random_songs(vec_list: list[MetricsVector]) -> list[MetricsVector]:
     """randomly picks half the songs of the top K songs and adds them to a list"""
     final_list = []
