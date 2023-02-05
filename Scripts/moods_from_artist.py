@@ -7,13 +7,13 @@ import top_track_of_artist
 
 
 def get_display_song_list(artist: str, mood: str):
-    mood = mood.lower()
+    l_mood = mood.lower()
 
     temp = top_track_of_artist.create_csv(artist)
 
     songs_csv = Path('somewhere')
 
-    average_vector = moods.MOOD[mood]
+    average_vector = moods.MOOD[l_mood]
 
     if temp != 'Something went wrong.':
         artist_csv = Path('somewhere')
