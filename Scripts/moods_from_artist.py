@@ -10,7 +10,7 @@ def get_display_song_list(artist: str, mood: str):
 
     temp = top_track_of_artist.create_csv(artist)
 
-    songs_csv = Path('../CSVs/song_list.csv')
+    songs_csv = Path('./CSVs/song_list.csv')
 
     average_vector = moods.MOOD[l_mood]
 
