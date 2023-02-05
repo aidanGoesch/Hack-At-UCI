@@ -11,7 +11,7 @@ def process():
     if request.method == "POST":
         form_data = request.form
         song_list = get_display_song_list(form_data["artist"], form_data["mood"])
-        return render_template("index.html", mood = form_data["mood"], artist = form_data["artist"], songs = ["hello", "world"])
+        return render_template("index.html", mood = form_data["mood"], artist = form_data["artist"], songs = song_list)
     return render_template("index.html", mood = "", artist = "", songs = [])
 
 if __name__ == '__main__':
