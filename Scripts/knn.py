@@ -1,5 +1,7 @@
 import math
+import random
 from typing import Self
+
 
 
 K = 10
