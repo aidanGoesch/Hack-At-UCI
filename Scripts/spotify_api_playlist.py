@@ -9,13 +9,14 @@ import pandas as pd
 CLIENT_ID = 'b38bdc06ca494cd385eaf026a84f53fd'
 CLIENT_SECRET = '4418182ed9b447e8a142063574c5c347'
 
-genres = {'more-songs-1': ( #'37i9dQZF1DWXRqgorJj26U',
+genres = {'more-songs-1': (#'37i9dQZF1DWXRqgorJj26U',
                             # "40y8L7CXfZYv8zgMB9asj7",
-                            #"40HuXUhGne38mfewzlLghz",
+                            # "40HuXUhGne38mfewzlLghz",
                             # "3a9pVhH8G93BZ3OB9OTbhF",
                             # "2X669hlkIwJ5GZaz27dG7c",
-                             "69tUdeFaKRDVTg2guSDttx",
-                        )
+                            # "69tUdeFaKRDVTg2guSDttx,
+                               "61BMAa1lb86F6QTs1MA6n4",
+                            )
                             }
 
 def get_token() -> str:
@@ -115,7 +116,7 @@ def create_csv_files():
     # Takes in all the playlist ids from the genres dict and
     # makes csvs of each genre and the songs inside the playlist
     temp_genre = get_features_for_genre()
-    i = 6
+    i = 7
     for key, val in temp_genre.items():
         file = f'{key}-{i}.csv'
         df = pd.DataFrame(val, columns = ['track_id',
