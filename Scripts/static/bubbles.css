@@ -160,7 +160,7 @@ body {
 
 @keyframes rise {
   0% {
-    bottom: -700px;
+    bottom: -150px;
     transform: translateX(0);
   }
   50% {
