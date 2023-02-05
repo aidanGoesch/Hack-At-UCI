@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV PYTHONUNBUFFERED=1
 
 # Run the command to start the application
-CMD ["python3", "app.py"]
+CMD ["python3", "main.py"]
