@@ -1,11 +1,7 @@
 # pandas_reading.py: reads the song data from the file
 import pandas as pd
 from pathlib import Path
-import numpy as np
 import knn
-import sys
-
-np.set_printoptions(threshold=sys.maxsize)
 
 
 def get_song_list(csv_path: Path) -> list[knn.MetricsVector]:
