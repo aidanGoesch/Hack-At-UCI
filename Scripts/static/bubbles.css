@@ -39,7 +39,7 @@ body {
   height: 30px;
   width: 600px;
   animation-name: loading;
-  animation-duration: 5s;
+  animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
   transform-origin: center;
