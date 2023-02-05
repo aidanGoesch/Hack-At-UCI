@@ -33,5 +33,10 @@ def get_song_name(song_id: str) -> str:
     r = r.json()
     return r['name']
 
+def song_id_list_to_song_name_list(id_list: list) -> list:
+    for index in range(id_list):
+        id_list[index] = get_song_name(id_list[index])
+    return id_list
+
 if __name__ == '__main__':
     pass
