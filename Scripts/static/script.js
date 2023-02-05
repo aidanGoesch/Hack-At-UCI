@@ -16,35 +16,44 @@ function change_button() {
 
 function start_loading() {
     document.getElementById("loadingBar").hidden = false
+    document.getElementById("moodButton").disab
+    document.getElementById("artistInput").disable()
 }
 
 function load_webpage() {
     let mood = document.getElementById("mood").innerHTML
     let artist = document.getElementById("artist").innerHTML
+    let songs = string_to_list(document.getElementById("songs").innerHTML)
 
     if (mood !== "") {
-        // on the second time it's been reloaded
+        // on the second time the page has been loaded
 
+        // update text and background color
         document.getElementById("artistInput").value = artist
         document.getElementById("moodButton").value = mood
         document.getElementsByTagName("body")[0].style.backgroundColor = COLORS[MOODS.indexOf(mood)]
 
-
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < document.getElementsByClassName("inputs").length; i++) {
             let input = document.getElementsByClassName("inputs")[i]
-
-            input.style.animationName = "inputRise"
 
             // add animation to mood input to look like its scrolled up
             input.style.animationName = "inputRise"
             input.style.animationDuration = "2s"
             input.style.animationFillMode = "forwards"
-            input.style.animationDelay = "0.5s"
+            input.style.animationDelay = "0.25s"
         }
 
+        // create table
+        let table = document.getElementById("songList")
 
+        songs.forEach(song => {
+            table.innerHTML+= "<li>" + song + "</li>"
+        })
     }
-
 }
 
+function string_to_list(songs) {
+    let doubleQuotedSongs = songs.replace(/'/g, '"');
+    return JSON.parse(doubleQuotedSongs)
+}
 

@@ -26,10 +26,15 @@
                 <input type="button" class="inputs" id="moodButton" onclick="change_button()" value="Sad">
                 <input type="text" name="artist" class="inputs" id="artistInput" placeholder="Artist..." autocomplete="off">
                 <input type="hidden" name="mood" class="inputs" id="moodInput" hidden="hidden" value="Sad">
-                <div id="loadingBar" hidden="hidden"></div>
-                <a id="mood" hidden="hidden">{{ mood }}</a>
-                <a id="artist" hidden="hidden">{{ artist }}</a>
             </form>
+
+            <div id="loadingBar" hidden="hidden"></div>
+            <a id="mood" hidden="hidden">{{ mood }}</a>
+            <a id="artist" hidden="hidden">{{ artist }}</a>
+            <a id="songs" hidden="hidden">{{ songs }}</a>
+
+            <ul id="songList" class="outputs"></ul>
+
         </div>
     </body>
 </html>
