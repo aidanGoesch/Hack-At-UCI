@@ -4,16 +4,13 @@ import urllib.parse
 import urllib.request
 import requests
 import pandas as pd
+# To do things change the playlist ids of the genres dictionary
 
 CLIENT_ID = 'b38bdc06ca494cd385eaf026a84f53fd'
 CLIENT_SECRET = '4418182ed9b447e8a142063574c5c347'
 
-genres = {'more-songs-1': ('40y8L7CXfZYv8zgMB9asj7',
-                        "37i9dQZF1DWXRqgorJj26U",
-                        "40HuXUhGne38mfewzlLghz",
-                        '2X669hlkIwJ5GZaz27dG7c',
-                        '69tUdeFaKRDVTg2guSDttx',
-                        '4m2b9fA2s6h9zCdTIYj35d')}
+genres = {'more-songs-1': ('0CV5QihhxHUj9KFd83TCHN',)
+                            }
 
 def get_token() -> str:
     AUTH_URL = 'https://accounts.spotify.com/api/token'
@@ -62,12 +59,25 @@ def get_playlist(playlist_id: str) -> list:
     BASE_URL = 'https://api.spotify.com/v1/playlists/'
     # actual GET request with proper header
     headers = create_header()
-    r = requests.get(BASE_URL + playlist_id + '/tracks?market=US&fields=items(track(id))', headers = headers)
+    r = requests.get(BASE_URL + playlist_id + '/tracks?market=US', headers = headers)
     r = r.json()
     items = r['items']
     ids = []
     for track in items:
         ids.append(track['track']['id'])
+    while True:
+        try:
+            r = requests.get(r['next'],
+                             headers = headers)
+            r = r.json()
+            items = r['items']
+            for track in items:
+                try:
+                    ids.append(track['track']['id'])
+                except:
+                    pass
+        except:
+            break
     return ids
 
 def get_features_of_playlist(playlist_song_id_list: list) -> list['tuple']:
@@ -92,19 +102,23 @@ def get_features_for_genre():
         print(genre)
     return temp_genres
 
-if __name__ == '__main__':
+def create_csv_files():
+    # Takes in all the playlist ids from the genres dict and
+    # makes csvs of each genre and the songs inside the playlist
     temp_genre = get_features_for_genre()
     for key, val in temp_genre.items():
         file = f'{key}.csv'
         df = pd.DataFrame(val, columns = ['track_id',
-                                     'danceability',
-                                     'energy',
-                                     'key',
-                                     'loudness',
-                                     'speechiness',
-                                     'acousticness',
-                                     'instrumentalness',
-                                     'liveness',
-                                     'valence',
-                                     'tempo'])
+                                          'danceability',
+                                          'energy',
+                                          'key',
+                                          'loudness',
+                                          'speechiness',
+                                          'acousticness',
+                                          'instrumentalness',
+                                          'liveness',
+                                          'valence',
+                                          'tempo'])
         df.to_csv(file)
+
+if __name__ == '__main__':
