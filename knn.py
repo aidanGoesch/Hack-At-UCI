@@ -1,13 +1,14 @@
 import math
 from typing import Self
 
+
 K = 5
 
 
 class MetricsVector:
     def __init__(self, danceability: float, energy: float, m_key: int, loudness: float,
                  speechiness: float, acousticness: float, instrumentalness: float,
-                 liveness: float, valence: float, tempo: float):
+                 liveness: float, valence: float, tempo: float, song_id: int):
         self.vector = (average_metric(danceability, 1),
                        average_metric(energy, 1),
                        average_metric(m_key, 1),
@@ -18,6 +19,10 @@ class MetricsVector:
                        average_metric(liveness, 1),
                        average_metric(valence, 1),
                        average_metric(tempo, 248.934))
+        self.song_id = song_id
+
+    def get_song_id(self) -> int:
+        return self.song_id
 
     def get_vector(self) -> tuple:
         return self.vector
@@ -58,21 +63,16 @@ def get_average_vector(vector_list: list[MetricsVector]) -> MetricsVector:
     for j in range(len(metrics_list)):
         metrics_list[j] = metrics_list[j]/len(vector_list)
 
-    final_vector = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    final_vector = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0) # this needs to be fixed
     final_vector.raw_assign(metrics_list)
+
+    return final_vector
 
 
 def get_closest_k(vec_list: list[MetricsVector], query: MetricsVector) -> list[MetricsVector]:
     """returns the closest K number of vectors to the average vector"""
-    distances = []
-
-    for vec in vec_list:
-        distances.append(distance_between(vec, query))
-
-    distances = sorted(distances)
-
-    return distances[:K]
-
+    vec_list.sort(key=lambda n: n.get_distance(query))
+    return vec_list[:K]
 
 
 if __name__ == '__main__':
