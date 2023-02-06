@@ -25,16 +25,20 @@
             <h1 id="titleBar">Moodify</h1>
             <form action="/" method="post" onsubmit="start_loading()">
                 <input type="button" class="inputs" id="moodButton" onclick="change_button()" value="Sad">
-                <input type="text" name="artist" class="inputs" id="artistInput" placeholder="Artist..." autocomplete="off">
+                <input type="text" class="inputs" id="artistField" placeholder="Artist..." autocomplete="off">
+
                 <input type="hidden" name="mood" class="inputs" id="moodInput" hidden="hidden" value="Sad">
+                <input type="hidden" name="artist" class="inputs" id="artistInput" hidden="hidden" value="">
             </form>
 
             <div id="loadingBar" hidden="hidden"></div>
             <a id="mood" hidden="hidden">{{ mood }}</a>
             <a id="artist" hidden="hidden">{{ artist }}</a>
             <a id="songs" hidden="hidden">{{ songs }}</a>
+            <a id="artists" hidden="hidden">{{ artists }}</a>
 
-            <table id="songTable" class="outputs"></table>
+
+            <table id="songTable" class="outputs" hidden="hidden"></table>
 
         </div>
     </body>

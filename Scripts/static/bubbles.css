@@ -69,7 +69,7 @@ body {
 
 }
 
-#artistInput {
+#artistField {
   top: calc(25% + 100px);
 }
 .bubbles {
@@ -168,6 +168,16 @@ body {
   }
   100% {
     transform: translate(-50%, -500px);
+    opacity: 0;
+  }
+}
+
+@keyframes outputRise {
+  0% {
+    transform: translate(-50%, 1100px);
+  }
+  100% {
+    transform: translate(-50%, 100px);
   }
 }
 

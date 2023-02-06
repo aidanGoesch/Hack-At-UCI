@@ -16,18 +16,29 @@ function change_button() {
 
 function start_loading() {
     document.getElementById("loadingBar").hidden = false
+    document.getElementById("artistInput").value = document.getElementById("artistField").value
+
+    disable_inputs()
+}
+
+function disable_inputs() {
+    document.getElementById("moodButton").disabled = true
+    document.getElementById("artistField").disabled = true
 }
 
 function load_webpage() {
     let mood = document.getElementById("mood").innerHTML
     let artist = document.getElementById("artist").innerHTML
     let songs = string_to_list(document.getElementById("songs").innerHTML)
+    let artists = string_to_list(document.getElementById("artists").innerHTML)
 
     if (mood !== "") {
         // on the second time the page has been loaded
 
+        disable_inputs()
+
         // update text and background color
-        document.getElementById("artistInput").value = artist
+        document.getElementById("artistField").value = artist
         document.getElementById("moodButton").value = mood
         document.getElementsByTagName("body")[0].style.backgroundColor = COLORS[MOODS.indexOf(mood)]
 
@@ -41,12 +52,21 @@ function load_webpage() {
             input.style.animationDelay = "0.25s"
         }
 
+        // add animation to songs output for similar effect
+        let output = document.getElementById("songTable")
+        output.style.animationName = "outputRise"
+        output.style.animationDuration = "4s"
+        output.style.animationFillMode = "forwards"
+        output.style.animationDelay = "0"
+
         // create table
         let table = document.getElementById("songTable")
+        table.hidden = false
+        table.innerHTML = "<tr><th>Artist</th><th>Song</th></tr>"
 
-        songs.forEach(song => {
-            table.innerHTML+= "<tr>" + song + "</tr>"
-        })
+        for (let i = 0; i < songs.length; i++) {
+            table.innerHTML+= "<tr><td>" + artists[i] + "</td><td>" + songs[i] + "</td></tr>"
+        }
     }
 }
 

@@ -33,10 +33,29 @@ def get_song_name(song_id: str) -> str:
     r = r.json()
     return r['name']
 
+def get_song_artist(song_id: str) -> str:
+    # base URL of all Spotify API endpoints
+    BASE_URL = 'https://api.spotify.com/v1/tracks/'
+
+    # actual GET request with proper header
+    headers = create_header()
+    r = requests.get(BASE_URL + song_id + '?market=US', headers = headers)
+    r = r.json()
+    return r['artists'][0]['name']
+
 def song_id_list_to_song_name_list(id_list: list) -> list:
-    for index in range(len(id_list)):
-        id_list[index] = get_song_name(str(id_list[index].get_song_id()))
-    return id_list
+    song_names = []
+    for id in id_list:
+        song_names.append(get_song_name(str(id.get_song_id())))
+
+    return song_names
+
+def song_id_list_to_song_artist_list(id_list: list) -> list:
+    artist_names = []
+    for id in id_list:
+        artist_names.append(get_song_artist(str(id.get_song_id())))
+
+    return artist_names
 
 if __name__ == '__main__':
     pass
