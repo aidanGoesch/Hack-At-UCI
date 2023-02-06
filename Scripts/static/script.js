@@ -62,10 +62,10 @@ function load_webpage() {
         // create table
         let table = document.getElementById("songTable")
         table.hidden = false
-        table.innerHTML = "<tr><th>Artist</th><th>Song</th></tr>"
+        table.innerHTML = "<tr><th class='artists'>Artist</th><th class='songs'>Song</th></tr>"
 
         for (let i = 0; i < songs.length; i++) {
-            table.innerHTML+= "<tr><td>" + artists[i] + "</td><td>" + songs[i] + "</td></tr>"
+            table.innerHTML+= "<tr><td class='artists'>" + artists[i] + "</td><td class='songs'>" + songs[i] + "</td></tr>"
         }
     }
 }

@@ -28,9 +28,22 @@ body {
   transform: translateX(-50%);
   position: absolute;
   height: 70px;
-  width: 600px;
+  width: 100%;
   font-size: 35px;
 }
+#songTable {
+  table-layout: fixed;
+}
+
+.artists {
+  text-align: right;
+  padding-right: 25px;
+}
+.songs {
+  text-align: left;
+  padding-left: 25px;
+}
+
 
 .inputs {
   font-family: 'Polly', Arial, sans-serif;
@@ -175,10 +188,10 @@ body {
 
 @keyframes outputRise {
   0% {
-    transform: translate(-50%, 1100px);
+    transform: translate(-50%, 1150px);
   }
   100% {
-    transform: translate(-50%, 100px);
+    transform: translate(-50%, 150px);
   }
 }
 
