@@ -3,10 +3,6 @@ import random
 from typing import Self
 
 
-
-K = 10
-
-
 class MetricsVector:
     def __init__(self, danceability: float, energy: float, m_key: int, loudness: float,
                  speechiness: float, acousticness: float, instrumentalness: float,
@@ -71,18 +67,18 @@ def get_average_vector(vector_list: list[MetricsVector]) -> MetricsVector:
     return final_vector
 
 
-def get_closest_k(vec_list: list[MetricsVector], query: MetricsVector) -> list[MetricsVector]:
+def get_closest_k(vec_list: list[MetricsVector], query: MetricsVector, k: int) -> list[MetricsVector]:
     """returns the closest K number of vectors to the average vector"""
     vec_list.sort(key=lambda n: n.get_distance(query))
-    return vec_list[:K]
+    return vec_list[:k]
 
 
-def get_random_songs(vec_list: list[MetricsVector]) -> list[MetricsVector]:
+def get_random_songs(vec_list: list[MetricsVector], half_k: int) -> list[MetricsVector]:
     """randomly picks half the songs of the top K songs and adds them to a list"""
     final_list = []
 
-    for i in range(K//2):
-        random_song_index = random.randint(0, len(vec_list))
+    while len(final_list) < half_k:
+        random_song_index = random.randint(0, len(vec_list)-1)
         final_list.append(vec_list[random_song_index])
         vec_list.pop(random_song_index)
 
@@ -96,7 +92,7 @@ def account_for_artist_vector(avg_vec: MetricsVector, artist_vec: MetricsVector)
     average_vector = []
 
     for i in range(len(vector_list_1)):
-        average_vector.append(((3 * vector_list_1[i]) + vector_list_2[i])/4)
+        average_vector.append((vector_list_1[i] + vector_list_2[i])/2)
 
     temp_vec = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     temp_vec.raw_assign(average_vector)
@@ -105,9 +101,15 @@ def account_for_artist_vector(avg_vec: MetricsVector, artist_vec: MetricsVector)
 
 
 if __name__ == '__main__':
-    vector1 = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-    vector2 = MetricsVector(1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-    vector1.raw_assign([.5, .5, 0, 0, 0, 0, 0, 0, 0, 0])
+    vector1 = MetricsVector(2, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    vector2 = MetricsVector(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
-    print(vector1.get_vector())
+    average_vector = get_average_vector([vector1, vector2])
+
+    vector3 = MetricsVector(0, 2, 0, 0, 0, 0, 0, 2, 0, 0)
+
+    print(vector3.get_vector())
+    # print(average_vector.get_vector())
+    # print(account_for_artist_vector(average_vector, vector3).get_vector())
+
 
