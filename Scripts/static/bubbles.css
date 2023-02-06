@@ -17,10 +17,11 @@ body {
   right: 5%;
   font-size: 500%;
 }
-#input_field {
+#inputField {
   position: sticky;
   padding-left: 50%;
   height: 100%;
+  overflow: hidden;
 }
 .outputs {
   font-family: 'Polly', Arial, sans-serif;
